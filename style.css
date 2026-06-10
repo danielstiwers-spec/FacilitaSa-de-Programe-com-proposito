@@ -124,7 +124,7 @@ main button{
 .water h1{
     color:black;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-block-end: auto;
+    margin-block-end: inherit;
 }
 .water h2{
     color: #2e2e2e;
