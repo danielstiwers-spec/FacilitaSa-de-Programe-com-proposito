@@ -5,12 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FacilitaSaúde</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .activities canvas {
+            max-width: 240px;
+            max-height: 240px;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="charts.js" defer></script>
+    <!-- PWA / app meta -->
+    <meta name="theme-color" content="#2b6cb0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="manifest.json">
+    <script defer>
+    // Inline chart initialization moved here to ensure DOM is ready
+    document.addEventListener('DOMContentLoaded', function(){
+        // Ensure canvas elements exist before creating charts
+        function initChart(id, config){
+            var el = document.getElementById(id);
+            if(!el){
+                // create canvas and append to appropriate container
+                el = document.createElement('canvas');
+                el.id = id;
+                var container = document.querySelector('[data-chart="'+id+'"]') || document.body;
+                container.appendChild(el);
+            }
+            new Chart(el, config);
+        }
+
+        // Meal
+        initChart('mealChart', {type:'doughnut', data:{labels:['Proteínas','Carboidratos','Gorduras'], datasets:[{data:[40,45,15]}]}});
+
+        // Water
+        initChart('waterChart', {type:'bar', data:{labels:['08h','10h','12h','14h','16h','18h'], datasets:[{label:'Copos', data:[1,2,2,1,2,1]}]}});
+
+        // Activities
+        initChart('activityChart', {type:'pie', data:{labels:['Caminhada','Academia','Corrida','Futebol'], datasets:[{data:[30,60,20,90]}]}});
+
+        // Heart
+        initChart('heartChart', {type:'line', data:{labels:['08h','10h','12h','14h','16h','18h'], datasets:[{label:'BPM', data:[72,75,78,120,88,74], tension:0.4}]}});
+
+        
+
+        // Try to register a service worker for app-like behavior
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/sw.js').catch(()=>{});
+        }
+    });
+    </script>
 </head>
 <body>
     <header>
         <h1>FacilitaSaúde</h1>
         <h2><a href="">HOME</a></h2>
-        <h2><a href="">PAGES</a></h2>
+        <h2><a href="">LOGIN</a></h2>
         <h2><a href="">CONTACT US</a></h2>
     </header>
     <main>
@@ -29,16 +81,18 @@
     <div class="primary">
         <h1>Nutrição e Atividades</h1>
         <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolore facere accusantium error est ea amet ab aperiam ut voluptatem aliquam, itaque illum veritatis sint magni doloribus reprehenderit modi blanditis.</h2>
-        <div class="meals">
+        <div class="meals" data-chart="mealChart">
                 <h1>Refeições do Dia</h1>
                 <h2>Macronutrientes</h2>
+                <!-- chart will be injected here -->
             </div>
         <div class="navigation">
-            <div class="water">
+            <div class="water" data-chart="waterChart">
                 <h1>Ingestão de Água</h1>
                 <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt voluptatem cum blanditiis, suscipit omnis quo odio officia, aspernatur impedit cumque cupiditate ea officiis.</h2>
+                <!-- chart will be injected here -->
             </div>
-            <div class="activities">
+            <div class="activities" data-chart="activityChart">
                 <h1>Atividades Realizadas Hoje</h1>
                 <ul>
                     <li>Sample Text.</li>
@@ -46,15 +100,17 @@
                     <li>Sample Text.</li>
                     <li>Sample Text.</li>
                 </ul>
+                <!-- chart will be injected here -->
             </div>
         </div>
     </div>
     <div class="secondary">
         <h1>Monitoramento de Saúde</h1>
         <div class="health">
-            <div class="heart">
+            <div class="heart" data-chart="heartChart">
                 <h1>Frequência Cardíaca</h1>
                 <h2>Dolor dolore facere accusantium error est ea amet ab aperiam ut voluptatem aliquam, itaque illum veritatis sint magni doloribus reprehenderit modi blanditis.</h2>
+                <!-- chart will be injected here -->
             </div>
             <div class="sleep">
                 <h1>Qualidade do Sono</h1>
@@ -64,32 +120,26 @@
         <div class="consultas">
             <h1>Próximas Consultas</h1>
             <ul>
-                <li>Sample Text.</li>
-                <li>Sample Text.</li>
-                <li>Sample Text.</li>
-                <li>Sample Text.</li>
+                <li>Dr. John Doe - Sample Text.</li>
+                <li>Dra. Jane Smith - Sample Text.</li>
+                <li>Dr. Bob Johnson - Sample Text.</li>
+                <li>Dra. Alice Williams - Sample Text.</li>
             </ul>
         </div>
     </div>
     <footer>
         <div class="copyright">
             <h1>FacilitaSaúde</h1>
-            <h2>© 2024 FacilitaSaúde. Todos os direitos reservados.</h2>
+            <p>© 2026 FacilitaSaúde. Todos os direitos reservados.</p>
         </div>
         <div class="contact">
-            <div class="ajuda">
-                <h1>Precisa de Ajuda?</h1>
+                <h1>Fale Conosco</h1>
                 <ul>
                     <li><a href="">Suporte ao Cliente</a></li>
                     <li><a href="">Serviços</a></li>
-                    <li><a href="">Fale Conosco</a></li>
-                    <li><a href="">Notícias</a></li>
+                    <li><a href="">Contato</a></li>
+                    <li><a href="">Equipe</a></li>
                 </ul>
-            </div>
-            <div class="social">
-                
-
-            </div>
         </div>
     </footer>
 </body>
