@@ -224,6 +224,15 @@ header a{
     text-decoration: none;
     color: white;
 }
+header img{
+    width: auto;
+    max-width: 60px;
+}
+header li{
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
 main{
     background-image: url(Imagens/Qualifications-to-Become-a-Doctor--scaled.webp);
     background-size: cover;
@@ -300,7 +309,6 @@ main button{
 }
 .meals h1{
     color: black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-block-end: auto;
     margin-top: 2%;
 
