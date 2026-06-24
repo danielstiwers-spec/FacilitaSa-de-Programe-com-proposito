@@ -1,4 +1,4 @@
-css* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #f8f9fa;
 }
 
@@ -21,7 +21,6 @@ body {
     width: 100%;
     max-width: 440px;
     border-top: 4px solid #1351b4; /* Azul padrão gov.br */
-    height: auto;
     min-height: 440px;
 }
 
@@ -82,7 +81,7 @@ body {
     padding: 14px;
     background-color: #1351b4;
     border: none;
-    border-radius: 20px; /* Botão arredondado do padrão atual */
+    border-radius: 20px;
     color: #ffffff;
     font-size: 16px;
     font-weight: bold;
@@ -113,6 +112,3 @@ body {
     text-decoration: underline;
 }
 
-
-    text-decoration: underline;
-}
