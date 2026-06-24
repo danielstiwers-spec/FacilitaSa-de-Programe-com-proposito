@@ -1,0 +1,161 @@
+/* Cabeçalho da página */
+.profile-header {
+    margin-bottom: 24px;
+}
+
+.profile-header h1 {
+    color: #002f6c;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.profile-header p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* Banner Informativo de Segurança (Conta Ouro) */
+.security-level-card {
+    background: linear-gradient(135deg, #fef08a 0%, #fefcbf 100%);
+    border: 1px solid #fef08a;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.security-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.shield-icon {
+    font-size: 28px;
+}
+
+.security-info h3 {
+    font-size: 15px;
+    color: #713f12;
+}
+
+.security-info p {
+    font-size: 13px;
+    color: #854d0e;
+    margin-top: 2px;
+}
+
+/* Organização dos blocos em Grid (Lado a lado em telas grandes) */
+.profile-sections-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 992px) {
+    .profile-sections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Estilo do Card Branco */
+.profile-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+}
+
+.profile-card h2 {
+    font-size: 18px;
+    color: #002f6c;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+/* Formulários e Inputs */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #334155;
+}
+
+.form-group input {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    color: #334155;
+    background-color: #ffffff;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #2b6cb0;
+}
+
+/* Estado Desabilitado (Imutável no gov.br por segurança) */
+.form-group input:disabled {
+    background-color: #f1f5f9;
+    color: #64748b;
+    border-color: #e2e8f0;
+    cursor: not-allowed;
+}
+
+.form-help {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.form-link {
+    font-size: 13px;
+    color: #2b6cb0;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.form-link:hover {
+    text-decoration: underline;
+}
+
+/* Botão Verde Principal de Salvar */
+.btn-save-profile {
+    background-color: #00875a;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+.btn-save-profile:hover {
+    background-color: #006644;
+}

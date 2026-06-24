@@ -1,0 +1,115 @@
+/* Layout Geral */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+/* Sidebar Fixa */
+.sidebar-nav.authenticated {
+    width: 280px;
+    background-color: #ffffff;
+    border-right: 1px solid #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 32px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 20px 0;
+}
+
+/* Bloco de Perfil do Usuário Logado */
+.user-profile-summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+/* Círculo com as iniciais do paciente */
+.user-avatar-circle {
+    width: 48px;
+    height: 48px;
+    background-color: #2b6cb0; /* Cor padrão do seu cabeçalho */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #1a202c;
+    font-size: 15px;
+}
+
+/* Menu de Abas Internas */
+.sidebar-menu ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-menu ul li { margin: 4px 16px; }
+
+.sidebar-menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #4a5568;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-menu ul li a:hover {
+    background-color: #f1f5f9;
+    color: #2b6cb0;
+}
+
+.sidebar-menu ul li a.active {
+    background-color: #2b6cb0;
+    color: #ffffff;
+}
+
+/* Rodapé do Menu Lateral (Sair da Conta) */
+.sidebar-footer {
+    margin-top: auto; /* Empurra o botão "Sair" para o fim da barra lateral */
+    padding: 0 16px;
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #e53e3e; /* Vermelho padrão de atenção */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-logout:hover {
+    background-color: #fff5f5;
+}
+
+/* Área de Conteúdo da Direita */
+.main-content-area {
+    flex: 1;
+    margin-left: 280px; /* Alinhado com a largura da nova sidebar */
+    padding: 24px;
+    width: calc(100% - 280px);
+}
