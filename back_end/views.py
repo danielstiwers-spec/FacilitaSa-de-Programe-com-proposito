@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password
 from .forms import UsuarioForm
-from .models import Usuario
+from .models import Usuario, GlossaryEntry
+from .initial_glossary_data import INITIAL_GLOSSARY_TERMS
 
 def login_view(request):
     form = UsuarioForm()
@@ -45,3 +46,22 @@ def cadastro_usuario(request):
         form = UsuarioForm()
 
     return render(request, 'login.html', {'form': form})
+
+
+def glossary_view(request):
+    if not GlossaryEntry.objects.exists():
+        for term_data in INITIAL_GLOSSARY_TERMS:
+            GlossaryEntry.objects.create(**term_data)
+
+    query = request.GET.get('q', '').strip()
+    glossary_entries = GlossaryEntry.objects.all()
+
+    if query:
+        glossary_entries = glossary_entries.filter(title__icontains=query)
+        glossary_entries |= GlossaryEntry.objects.filter(description__icontains=query)
+        glossary_entries |= GlossaryEntry.objects.filter(symptoms__icontains=query)
+
+    return render(request, 'glossary.html', {
+        'glossary_entries': glossary_entries,
+        'query': query,
+    })
