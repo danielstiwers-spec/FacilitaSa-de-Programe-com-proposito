@@ -20,11 +20,11 @@
             <!-- Identificação do Cidadão Logado -->
             <div class="user-profile-summary">
                 <div class="user-avatar-circle">
-                    <!-- Iniciais do Usuário -->
-                    <span>JD</span>
+                    <span id="userInitials">JD</span>
                 </div>
                 <div class="user-details">
-                    <span class="user-name">John Doe</span>
+                    <span class="user-name" id="userName">John Doe</span>
+                    <span class="user-email" id="userEmail">john.doe@email.com</span>
                 </div>
             </div>
             
@@ -38,18 +38,18 @@
                 </ul>
             </nav>
 
-            <!-- Rodapé da Barra Lateral: Botão de Sair de forma discreta -->
+            <!-- Rodapé da Barra Lateral-->
             <div class="sidebar-footer">
                 <a href="index.html" class="btn-logout">Sair da Conta</a>
             </div>
         </aside>
 
-        <!-- CONTAINER DA DIREITA: Conteúdo dos seus gráficos -->
+        <!-- DIREITA: Conteúdo dos gráficos -->
         <div class="main-content-area">
             
             <main>
                 <section class="hero">
-                    <h1>Olá, John! Bem-vindo ao seu Centro de Saúde</h1>
+                    <h1 id="userGreeting">Olá, visitante! Bem-vindo ao seu Centro de Saúde</h1>
                     <h2>Abaixo você confere o monitoramento atualizado da sua rotina e dados biométricos hoje.</h2>
                 </section>
 

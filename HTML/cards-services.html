@@ -5,32 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">Carregando Serviço... - gov.br</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Rawline", sans-serif; }
-        body { background-color: #f4f6f8; color: #333333; line-height: 1.6; }
-        .gov-header-bar { background-color: #003366; color: #ffffff; padding: 8px 16px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
-        .main-header { background-color: #ffffff; border-bottom: 1px solid #e9ecef; padding: 20px 16px; }
-        .header-container { max-width: 1140px; margin: 0 auto; }
-        .logo-placeholder { font-size: 24px; font-weight: 800; color: #002f6c; text-decoration: none; }
-        .logo-placeholder span { color: #00875a; }
-        .back-link { max-width: 1140px; margin: 20px auto 0; padding: 0 16px; }
-        .back-link a { color: #0056b3; text-decoration: none; font-size: 14px; font-weight: bold; }
-        .main-container { max-width: 1140px; margin: 20px auto 60px; padding: 0 16px; display: grid; grid-template-columns: 1fr; gap: 30px; }
-        @media (min-width: 768px) { .main-container { grid-template-columns: 1fr 350px; } }
-        .service-info { background: #ffffff; padding: 30px; border-radius: 8px; border: 1px solid #e2e8f0; }
-        .service-info h1 { font-size: 26px; color: #002f6c; margin-bottom: 10px; }
-        .service-description { font-size: 16px; color: #4a5568; margin-bottom: 30px; }
-        .step-section h2 { font-size: 18px; color: #002f6c; margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
-        .step-card { background: #f8fafc; border-left: 4px solid #0056b3; padding: 15px; margin-bottom: 15px; border-radius: 0 4px 4px 0; }
-        .step-card h3 { font-size: 15px; color: #334155; margin-bottom: 5px; }
-        .service-action-sidebar { display: flex; flex-direction: column; gap: 20px; }
-        .action-card { background: #ffffff; padding: 24px; border-radius: 8px; border: 1px solid #e2e8f0; text-align: center; }
-        .btn-start { display: block; background-color: #00875a; color: #ffffff; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: bold; font-size: 16px; }
-        .attributes-card { background: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
-        .attr-item { margin-bottom: 15px; font-size: 14px; }
-        .attr-item span { display: block; color: #718096; font-size: 12px; text-transform: uppercase; font-weight: bold; }
-        .attr-item strong { color: #2d3748; }
-        .main-footer { background-color: #002f6c; color: #ffffff; text-align: center; padding: 24px 16px; font-size: 14px; position: fixed; bottom: 0; width: 100%; }
-        @media (min-height: 800px) { .main-footer { position: relative; margin-top: 60px; } }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Rawline", sans-serif; 
+        }
+        body { 
+            background-color: #f4f6f8; 
+            color: #333333; 
+            line-height: 1.6; }
+        .gov-header-bar { 
+            background-color: #003366; 
+            color: #ffffff; 
+            padding: 8px 16px; 
+            font-size: 12px; 
+            font-weight: bold; 
+            text-transform: uppercase; }
+        .main-header { 
+            background-color: #ffffff; 
+            border-bottom: 1px solid #e9ecef; 
+            padding: 20px 16px; 
+        }
+        .header-container { 
+            max-width: 1140px; 
+            margin: 0 auto; 
+        }
+        .logo-placeholder { 
+            font-size: 24px; 
+            font-weight: 800; 
+            color: #002f6c; 
+            text-decoration: none; 
+        }
+        .logo-placeholder span { 
+            color: #00875a; 
+        }
+        .back-link { 
+            max-width: 1140px; 
+            margin: 20px auto 0; 
+            padding: 0 16px; 
+        }
+        .back-link a { 
+            color: #0056b3; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: bold; 
+        }
+        .main-container { 
+            max-width: 1140px; 
+            margin: 20px auto 60px; 
+            padding: 0 16px; 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 30px; 
+        }
+        @media (min-width: 768px) { 
+            .main-container { 
+                grid-template-columns: 1fr 350px; 
+            } 
+        }
+        .service-info { 
+            background: #ffffff; 
+            padding: 30px; 
+            border-radius: 8px;
+            border: 1px solid #e2e8f0; 
+        }
+        .service-info h1 { 
+            font-size: 26px; 
+            color: #002f6c; 
+            margin-bottom: 10px; 
+        }
+        .service-description { 
+            font-size: 16px; 
+            color: #4a5568; 
+            margin-bottom: 30px; 
+        }
+        .step-section h2 { 
+            font-size: 18px; 
+            color: #002f6c; 
+            margin-bottom: 15px; 
+            border-bottom: 2px solid #e2e8f0; 
+            padding-bottom: 5px; 
+        }
+        .step-card { 
+            background: #f8fafc; 
+            border-left: 4px solid #0056b3; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border-radius: 0 4px 4px 0; 
+        }
+        .step-card h3 {
+            font-size: 15px; 
+            color: #334155; 
+            margin-bottom: 5px; 
+        }
+        .service-action-sidebar { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+        }
+        .action-card { 
+            background: #ffffff; 
+            padding: 24px; 
+            border-radius: 8px; 
+            border: 1px solid #e2e8f0; 
+            text-align: center; 
+        }
+        .btn-start { 
+            display: block; 
+            background-color: #00875a; 
+            color: #ffffff; 
+            text-decoration: none; 
+            padding: 14px; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            font-size: 16px; 
+        }
+        .attributes-card {
+            background: #ffffff; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border: 1px solid #e2e8f0; 
+        }
+        .attr-item {
+            margin-bottom: 15px; 
+            font-size: 14px; 
+        }
+        .attr-item span { 
+            display: block; 
+            color: #718096; 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            font-weight: bold; 
+        }
+        .attr-item strong { 
+            color: #2d3748; 
+        }
+        .main-footer { 
+            background-color: #002f6c; 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 24px 16px; 
+            font-size: 14px; 
+            position: fixed; 
+            bottom: 0; 
+            width: 100%; 
+        }
+        @media (min-height: 800px) { 
+            .main-footer { 
+                position: relative; 
+                margin-top: 60px; 
+            } 
+        }
     </style>
 </head>
 <body>

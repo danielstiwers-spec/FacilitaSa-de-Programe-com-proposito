@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - FacilitaSaúde</title>
+    <link rel="stylesheet" href="/CSS/profile.css">
+</head>
+<body>
+    <div class="gov-header-bar" style="background-color: #003366; color: #ffffff; padding: 8px 16px; font-size: 12px; font-weight: bold; text-transform: uppercase;">
+        <span>brasil.gov.br</span>
+    </div>
+
+    <div class="app-wrapper">
+        <aside class="sidebar-nav authenticated">
+            <div class="user-profile-summary">
+                <div class="user-avatar-circle">
+                    <span>{{ initials }}</span>
+                </div>
+                <div class="user-details">
+                    <span class="user-name">{{ display_name }}</span>
+                    <span class="user-email">{{ usuario.email }}</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="/user-cadastrado/">Início</a></li>
+                    <li><a href="/routine.html">Minha Rotina</a></li>
+                    <li><a href="/profile.html" class="active">Meu Perfil</a></li>
+                    <li><a href="/doubts.html">Dúvidas Frequentes</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/logout/" class="btn-logout">Sair da Conta</a>
+            </div>
+        </aside>
+
+        <div class="main-content-area">
+            <div class="profile-header">
+                <h1>Dados da Conta</h1>
+                <p>Gerencie suas informações cadastrais e visualize o nível de segurança da sua conta vinculada.</p>
+            </div>
+
+            <div class="profile-sections-grid">
+                <div class="profile-card">
+                    <h2>Identificação do Cidadão</h2>
+                    <form class="profile-form">
+                        <div class="form-group">
+                            <label for="inputNome">Nome Completo</label>
+                            <input type="text" id="inputNome" value="{{ display_name }}" disabled>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputCPF">CPF</label>
+                                <input type="text" id="inputCPF" value="{{ usuario.cpf }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputNasc">RG</label>
+                                <input type="text" id="inputNasc" value="{{ usuario.rg }}" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputSUS">E-mail</label>
+                            <input type="text" id="inputSUS" value="{{ usuario.email }}" disabled>
+                            <small class="form-help">E-mail usado para login e notificações oficiais.</small>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="profile-card">
+                    <h2>Dados de Contato</h2>
+                    <form class="profile-form" onsubmit="salvarPerfil(event)">
+                        <div class="form-group">
+                            <label for="inputEmail">E-mail Cadastrado</label>
+                            <input type="email" id="inputEmail" value="{{ usuario.email }}" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inputTelefone">Celular / WhatsApp</label>
+                            <input type="tel" id="inputTelefone" value="" placeholder="(00) 00000-0000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputSenha">Senha de Acesso</label>
+                            <input type="password" id="inputSenha" value="********" disabled>
+                            <a href="/password.html" class="form-link">Alterar senha &rarr;</a>
+                        </div>
+
+                        <button type="submit" class="btn-save-profile">Salvar Alterações</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function salvarPerfil(event) {
+            event.preventDefault();
+            alert("Informações de contato atualizadas com sucesso! 📑");
+        }
+    </script>
+</body>
+</html>
